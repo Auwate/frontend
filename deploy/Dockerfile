@@ -14,6 +14,6 @@ RUN pip install -r requirements.txt
 
 WORKDIR /opt/frontend/frontend
 
-EXPOSE 81
+EXPOSE 80
 
-CMD [ "python3", "-m", "streamlit", "run", "HCI_Frontend.py" ]
+CMD [ "python3", "-m", "streamlit", "run", "HCI_Frontend.py", "--server.port 80" ]
