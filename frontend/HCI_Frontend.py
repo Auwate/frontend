@@ -10,7 +10,7 @@ def send_data_to_backend(data):
     # Get the response code from the backend_url api
     response = requests.post(backend_url, json=payload)
 
-    if response == 200:
+    if response.status_code == 200:
         st.success("Request sent, please wait...")
     else:
         st.error("Failed to send. Please retry later.")
