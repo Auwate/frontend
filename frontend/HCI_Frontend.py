@@ -12,7 +12,7 @@ def get_data_from_backend(recent_queries):
 
     for data in api_data:
         if data not in recent_queries:
-            st.sidebar.write(data.body)
+            st.sidebar.write(data.get("body", "N/A"))
             recent_queries.append(data)
 
 
