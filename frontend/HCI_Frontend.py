@@ -4,7 +4,7 @@ import os
 
 def send_data_to_backend(data):
     # Write the path to our backend api
-    backend_url = "http://" + os.environ.get("BACKEND_HOST") + ":80/api/post"
+    backend_url = "http://backend:80/api/post"
     # Write the payload (in this case it's our data) in json format
     payload = {"data": data}
     # Get the response code from the backend_url api
