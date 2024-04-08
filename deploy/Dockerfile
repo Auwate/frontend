@@ -16,4 +16,4 @@ WORKDIR /opt/frontend/frontend
 
 EXPOSE 80
 
-CMD [ "python3", "-m", "streamlit", "run", "HCI_Frontend.py", "--server.port 80" ]
+CMD [ "python3", "-m", "streamlit", "run", "HCI_Frontend.py", "--server.port=80" ]
