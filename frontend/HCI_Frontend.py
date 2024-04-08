@@ -12,7 +12,7 @@ def get_data_from_backend(recent_queries):
 
     for data in api_data:
         if data not in recent_queries:
-            st.sidebar.write(data)
+            st.sidebar.write(data.body)
             recent_queries.append(data)
 
 
@@ -20,7 +20,7 @@ def send_data_to_backend(data, recent_queries):
     # Write the path to our backend api
     backend_url = "http://backend:80/api/post/"
     # Write the payload (in this case it's our data) in json format
-    payload = {"data": data}
+    payload = {"body": data}
     # Get the response code from the backend_url api
     response = requests.post(backend_url, json=payload)
 
