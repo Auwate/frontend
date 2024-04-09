@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import os
+import time
 
 recent_queries = []
 
@@ -25,6 +26,8 @@ def send_data_to_backend(data, recent_queries):
     response = requests.post(backend_url, json=payload)
 
     if response.status_code == 201 or response.status_code == 200:
+        st.success("Success! Please wait a moment while we fetch your results.")
+        time.sleep(2.5)
         get_data_from_backend(recent_queries)
 
 
@@ -33,6 +36,7 @@ def send_data_to_backend(data, recent_queries):
 
 st.title("Summarize a Website")
 st.write("Powered by ChatGPT")
+st.sidebar.header("Recent Queries")
 
 st.divider()
 with st.form("get_address"):
