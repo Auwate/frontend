@@ -46,6 +46,10 @@ with st.form("get_address"):
     if submitted and address:
         send_data_to_backend(address, recent_queries)
     elif submitted:
+        for element in recent_queries:
+            st.sidebar.write(element.get("body", "N/A"))
         st.warning("Please fill out the address field")
     else:
+        for element in recent_queries:
+            st.sidebar.write(element.get("body", "N/A"))
         st.info("Please fill out the web address provided above.")
