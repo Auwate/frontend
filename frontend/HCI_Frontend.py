@@ -10,8 +10,8 @@ def get_response ():
     response = requests.get(backend_url)
     api_data = response.json()
 
-    if api_data.get('status', 400) == 400:
-        st.error(api_data['message'])
+    if api_data.get('status', 200) == 400:
+        st.error("Response failed to be retrieved")
         return
     
     st.write(api_data['response'])
