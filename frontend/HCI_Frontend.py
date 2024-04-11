@@ -5,6 +5,17 @@ import time
 
 recent_queries = []
 
+def get_response ():
+    backend_url = "http://backend:80/api/response/"
+    response = requests.get(backend_url)
+    api_data = response.json()
+
+    if api_data.get('status', 400) == 400:
+        st.error("Response failed to be retrieved")
+        return
+    
+    st.write(api_data['response'])
+
 def get_data_from_backend(recent_queries):
     # Write out backend url
     backend_url = "http://backend:80/api/recent/"
@@ -29,6 +40,7 @@ def send_data_to_backend(data, recent_queries):
         st.success("Success! Please wait a moment while we fetch your results.")
         time.sleep(2.5)
         get_data_from_backend(recent_queries)
+        get_response()
 
 
     else:
